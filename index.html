@@ -3,108 +3,254 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tommaso Baldini – Statistica e Data Science</title>
-  <meta name="description" content="Portfolio di Tommaso Baldini: statistica, demografia e data science.">
+  <title>Tommaso Baldini · Statistica, popolazione, dati</title>
+  <meta name="description" content="Tommaso Baldini, studente magistrale in Scienze Statistiche a Padova: demografia, statistica sociale, modelli e machine learning. Progetti, report e contatti.">
+  <meta name="theme-color" content="#F4F1EA">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141414'/%3E%3Ccircle cx='11' cy='16' r='3' fill='%23E0582A'/%3E%3Ccircle cx='21' cy='11' r='2.2' fill='%23F4F1EA'/%3E%3Ccircle cx='21' cy='21' r='2.2' fill='%23F4F1EA'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=21">
+  <script>
+    try { const t = localStorage.getItem("tb-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 </head>
 <body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
-  <header class="nav">
-    <a class="brand" href="#home">TB</a>
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Inizio pagina"><span class="brand-dot"></span>Tommaso Baldini</a>
     <nav aria-label="Principale">
-      <a href="#progetti">Progetti</a>
       <a href="#chi-sono">Chi sono</a>
+      <a href="#progetti">Progetti</a>
+      <a href="#competenze">Competenze</a>
       <a href="#contatti">Contatti</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+    </button>
   </header>
 
-  <main>
-    <!-- 1. PRESENTAZIONE (da sviluppare) -->
-    <section id="home" class="hero">
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse"></span>Scienze Statistiche · Padova → KU Leuven</p>
+          <h1 class="hero-title">
+            <span class="line"><span>Tommaso</span></span>
+            <span class="line"><span><em>Baldini</em></span></span>
+          </h1>
+          <p class="hero-sub">Statistica applicata alle persone e alla società.</p>
+          <div class="hero-actions">
+            <a class="btn-pill" href="#progetti">Esplora i progetti <span aria-hidden="true">↓</span></a>
+            <a class="link-under" href="assets/cv/Tommaso_Baldini_CV.pdf" download>Scarica il CV</a>
+          </div>
+        </div>
+        <figure class="hero-fig" id="heroFig">
+          <div class="fig-stage">
+            <canvas id="heroCanvas" role="img" aria-label="Piramide delle età e transizione demografica"></canvas>
+            <span class="fig-hint mono">clicca per mettere in pausa · trascina sul grafico per scegliere l'anno</span>
+          </div>
+          <figcaption>
+            <div class="fig-head"><span class="mono fig-num">Fig. 0</span><b>Popolazioni in transizione, 1950–2100</b></div>
+            <p class="fig-desc" id="figDesc"></p>
+            <div class="fig-controls">
+              <button class="fig-play" id="figPlay" type="button"></button>
+              <div class="fig-tabs" id="figTabs" role="tablist" aria-label="Scegli il Paese"></div>
+            </div>
+            <p class="fig-note">Simulazione con un modello per componenti (coorti quinquennali). Fecondità, sopravvivenza e migrazioni seguono traiettorie plausibili ispirate alle stime ONU: le piramidi non sono dati ufficiali.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <a class="scroll-cue" href="#chi-sono" aria-label="Scorri"><span></span></a>
+    </section>
+
+    <!-- ============ CHI SONO ============ -->
+    <section id="chi-sono" class="section">
       <div class="wrap">
-        <p class="hero-meta">Studente magistrale in Scienze Statistiche, Padova</p>
-        <h1>Tommaso<br>Baldini</h1>
-        <p class="hero-sub">Statistica, demografia e territorio: trasformo i dati in storie leggibili.</p>
-        <a class="scroll-cue" href="#progetti" aria-label="Vai ai progetti"><span></span></a>
+        <header class="sec-head reveal">
+          <span class="sec-num mono">01</span>
+          <h2>Chi sono</h2>
+        </header>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="lead-big">Sono uno studente magistrale in Scienze Statistiche e mi piace la statistica applicata alle persone e alla società.</p>
+            <p>Ho fatto la triennale in Statistica e Gestione delle Informazioni a <strong>Milano-Bicocca</strong>, poi sono passato a <strong>Padova</strong> per la magistrale. Da febbraio 2027 sarò in Erasmus alla <strong>KU Leuven</strong>.</p>
+            <p>I miei interessi sono la statistica sociale e tutto quello che le sta intorno: popolazione, migrazioni, il modo in cui le persone vivono e si spostano. Li ho seguiti nel progetto di ricerca <strong>MIGHTY</strong> sui migranti in Italia (tirocinio e tesi triennale) e ora nella tesi magistrale su migrazioni interne e aree interne.</p>
+            <p>Sono curioso: voglio capire come funzionano le cose e quali meccanismi ci sono sotto, e dare un significato ai dati.</p>
+          </div>
+          <div class="about-side">
+            <figure class="portrait reveal"><img src="assets/img/tommaso.jpg" alt="Tommaso Baldini" width="798" height="982" loading="lazy"></figure>
+          <ol class="path reveal" aria-label="Percorso">
+              <li class="path-next"><span class="path-year mono">Feb 2027</span><div><b>Erasmus · KU Leuven, Belgio</b><span>Secondo semestre della magistrale nel Master of Statistics and Data Science</span></div></li>
+              <li><span class="path-year mono">2026 →</span><div><b>Tesi magistrale</b><span>Migrazioni interne e aree interne · Padova</span></div></li>
+              <li><span class="path-year mono">2025 →</span><div><b>Laurea magistrale in Scienze Statistiche</b><span>Università di Padova</span></div></li>
+              <li><span class="path-year mono">2025</span><div><b>Tirocinio di ricerca · progetto MIGHTY</b><span>DISMEQ, Milano-Bicocca · poster a PopDays 2025</span></div></li>
+              <li><span class="path-year mono">2022–25</span><div><b>Laurea triennale in Statistica e Gestione delle Informazioni</b><span>Milano-Bicocca · 110 e lode / 110</span></div></li>
+              <li><span class="path-year mono">2017–22</span><div><b>Liceo Scientifico, Scienze Applicate</b><span>A. Volta, Castel San Giovanni · 100 / 100</span></div></li>
+            </ol>
+          </div>
+        </div>
+        <dl class="stats reveal">
+          <div><dt>Prossima tappa</dt><dd>Leuven</dd></div>
+          <div><dt>Atenei</dt><dd>3</dd></div>
+          <div><dt>Inglese</dt><dd>C1</dd></div>
+          <div><dt>Linguaggi</dt><dd class="dd-small">R · Python · SAS · SPSS</dd></div>
+        </dl>
       </div>
     </section>
 
-    <!-- 2. PROGETTI: grafo interattivo -->
-    <section id="progetti" class="section reveal">
+    <!-- ============ PROGETTI ============ -->
+    <section id="progetti" class="section section-projects">
       <div class="wrap">
-        <h2>Progetti</h2>
-        <p class="lead">Trascina i nodi, passa sopra per il contesto, clicca per abstract e link.</p>
-        <div class="filters" id="filters" role="group" aria-label="Filtra per tema"></div>
-        <div class="graph" id="graph"></div>
+        <header class="sec-head reveal">
+          <span class="sec-num mono">02</span>
+          <h2>Progetti</h2>
+          <p class="sec-lead">Ecco alcuni progetti che ho fatto durante i miei studi, sia a Milano sia a Padova. Scegli come guardarli: <span class="hint" id="modeHint">passa sopra un punto per il contesto e cliccalo per abstract e report.</span></p>
+        </header>
+
+        <div class="controls reveal">
+          <div class="modes" role="tablist" aria-label="Modalità di presentazione" id="modes">
+            <span class="modes-ink" id="modesInk" aria-hidden="true"></span>
+            <button role="tab" data-mode="timeline">Timeline</button>
+            <button role="tab" data-mode="graph">Grafo</button>
+            <button role="tab" data-mode="index">Indice</button>
+            <button role="tab" data-mode="map">Mappa</button>
+          </div>
+          <div class="filters" id="filters" role="group" aria-label="Filtra per tema"></div>
+        </div>
+
+        <div class="stage reveal" id="stage">
+          <div class="viz" id="viz" aria-live="polite"></div>
+        </div>
+        <p class="stage-note mono" id="stageNote"></p>
       </div>
     </section>
 
-    <!-- 3. CHI SONO & INTERESSI -->
-    <section id="chi-sono" class="section reveal">
-      <div class="wrap about">
-        <h2>Chi sono</h2>
-        <div class="about-text">
-          <p>Costruisco modelli statistici e li racconto con i dati: lavoro in <strong>R</strong> e <strong>Python</strong> e porto le analisi sul web con <strong>HTML, CSS e JavaScript</strong>, perché un risultato vale di più se si può esplorare.</p>
-          <p>Fuori dai notebook mi trovi sui campi del calcio dilettantistico, in sala davanti a un film d'autore, con della musica nelle orecchie o ai fornelli.</p>
-          <ul class="chips" aria-label="Interessi">
-            <li>Calcio dilettantistico</li>
-            <li>Cinema d'autore</li>
-            <li>Musica</li>
-            <li>Cucina</li>
+    <!-- ============ COMPETENZE ============ -->
+    <section id="competenze" class="section">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num mono">03</span>
+          <h2>Competenze</h2>
+          <p class="sec-lead">Lavoro soprattutto in R, uso Python quando serve e porto i risultati sul web con HTML, CSS e JavaScript.</p>
+        </header>
+        <div class="skills reveal">
+          <div class="skill-col">
+            <h3 class="mono">Modelli</h3>
+            <ul><li>GLM, modelli ordinali e GEE</li><li>Modelli misti e gerarchici</li><li>Classi latenti</li><li>MRP e ponderazione delle survey</li><li>Serie storiche</li></ul>
+          </div>
+          <div class="skill-col">
+            <h3 class="mono">Machine learning</h3>
+            <ul><li>Lasso, GAM, MARS</li><li>Alberi, bagging, random forest, boosting</li><li>SVM, reti neurali, KNN</li><li>Validazione e scelta delle soglie</li></ul>
+          </div>
+          <div class="skill-col">
+            <h3 class="mono">Popolazione</h3>
+            <ul><li>Proiezioni per coorte</li><li>Tavole di mortalità</li><li>Indicatori compositi</li><li>Disegno di indagini</li></ul>
+          </div>
+          <div class="skill-col">
+            <h3 class="mono">Strumenti</h3>
+            <ul><li>R · tidyverse · ggplot2</li><li>Python</li><li>SAS · SPSS</li><li>HTML · CSS · JS · D3</li></ul>
+          </div>
+        </div>
+
+        <p class="offduty reveal"><span class="mono">Fuori dai dati</span> Gioco a calcio in una squadra dilettantistica, mi piace molto il cinema (<a href="https://boxd.it/3QqBz" target="_blank" rel="noopener">il mio Letterboxd</a>) e ascolto molta musica.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTATTI ============ -->
+    <section id="contatti" class="section section-contact">
+      <div class="wrap contact">
+        <header class="sec-head reveal">
+          <span class="sec-num mono">04</span>
+          <h2>Contatti</h2>
+        </header>
+        <div class="contact-row reveal">
+          <a class="cta" id="cta" href="assets/cv/Tommaso_Baldini_CV.pdf" download>
+            <span class="cta-fill" aria-hidden="true"></span>
+            <span class="cta-label">Scarica il CV</span>
+            <span class="cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>
+            </span>
+          </a>
+          <ul class="socials">
+            <li><a href="https://www.linkedin.com/in/tommaso-baldini-271ba82b4/" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a></li>
+            <li><a href="https://github.com/btommaso3-alt" target="_blank" rel="noopener" aria-label="GitHub" data-tip="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a></li>
+            <li><a href="mailto:tommaso.baldini@studenti.unipd.it" aria-label="Email" data-tip="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a></li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <!-- 4. CV & CONTATTI -->
-    <section id="contatti" class="section reveal">
-      <div class="wrap contact">
-        <h2>Parliamone</h2>
-        <a class="cta" href="assets/cv/Tommaso_Baldini_CV.pdf" download>
-          <span class="cta-label">Scarica il CV</span>
-          <svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5M4 20h16"/></svg>
-        </a>
-        <ul class="socials">
-          <li><a href="https://www.linkedin.com/in/tommaso-baldini-271ba82b4/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a></li>
-          <li><a href="https://github.com/btommaso3-alt" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a></li>
-          <li><a href="mailto:tommaso.baldini@studenti.unipd.it" aria-label="Email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a></li>
-        </ul>
+        <a class="mail-big reveal" href="mailto:tommaso.baldini@studenti.unipd.it">tommaso.baldini@studenti.unipd.it</a>
       </div>
     </section>
   </main>
 
-  <footer class="foot"><div class="wrap">© <span id="year"></span> Tommaso Baldini</div></footer>
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span>© <span id="year"></span> Tommaso Baldini</span>
+      <span class="mono">Scritto a mano · HTML, CSS, JS e D3</span>
+    </div>
+  </footer>
 
-  <!-- Tooltip del grafo -->
+  <!-- Tooltip -->
   <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+  <!-- Anteprima per la modalità Indice -->
+  <div class="peek" id="peek" aria-hidden="true"><span class="peek-kpi" id="peekKpi"></span><span class="peek-label" id="peekLabel"></span></div>
 
   <!-- Drawer off-canvas -->
   <div class="scrim" id="scrim"></div>
   <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="d-title" aria-hidden="true">
-    <button class="drawer-close" id="d-close" aria-label="Chiudi">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
-    <p class="d-group"><i id="d-dot"></i><span id="d-group"></span></p>
-    <h3 id="d-title"></h3>
-    <dl class="d-meta">
-      <div><dt>Periodo</dt><dd id="d-date"></dd></div>
-      <div><dt>Contesto</dt><dd id="d-place"></dd></div>
-    </dl>
-    <p id="d-abstract" class="d-abstract"></p>
-    <ul class="chips" id="d-tags"></ul>
-    <div class="d-actions">
-      <a class="btn" id="d-pdf" target="_blank" rel="noopener">Scarica il report PDF</a>
-      <a class="btn btn-ghost" id="d-repo" target="_blank" rel="noopener">Vedi il codice su GitHub</a>
+    <div class="drawer-top">
+      <p class="d-theme"><i id="d-dot"></i><span id="d-theme"></span></p>
+      <div class="drawer-nav">
+        <button id="d-prev" aria-label="Progetto precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button id="d-next" aria-label="Progetto successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="drawer-close" id="d-close" aria-label="Chiudi">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <p class="d-course"><span class="course-badge" id="d-course"></span><span class="d-degree" id="d-degree"></span></p>
+      <h3 id="d-title"></h3>
+      <section class="d-objective">
+        <h4 class="d-h">Obiettivo</h4>
+        <p id="d-objective"></p>
+      </section>
+      <div class="d-kpi"><span id="d-kpi"></span><small id="d-kpiLabel"></small></div>
+      <dl class="d-meta">
+        <div><dt>Periodo</dt><dd id="d-period"></dd></div>
+        <div><dt>Tipo</dt><dd id="d-kind"></dd></div>
+        <div><dt>Team</dt><dd id="d-team"></dd></div>
+      </dl>
+      <section class="d-sec">
+        <h4 class="d-h"><span class="mono">01</span> Dati</h4>
+        <p id="d-data"></p>
+      </section>
+      <section class="d-sec">
+        <h4 class="d-h"><span class="mono">02</span> Strategia</h4>
+        <ol class="steps" id="d-strategy"></ol>
+      </section>
+      <section class="d-sec">
+        <h4 class="d-h"><span class="mono">03</span> Strumenti</h4>
+        <div class="tool-group"><span class="tool-label">Metodi statistici</span><ul class="tags" id="d-methods"></ul></div>
+        <div class="tool-group" id="d-softwareWrap"><span class="tool-label">Software</span><ul class="tags tags-sw" id="d-software"></ul></div>
+      </section>
+      <section class="d-sec">
+        <h4 class="d-h"><span class="mono">04</span> Risultati</h4>
+        <div class="d-results" id="d-results"></div>
+      </section>
+      <div class="d-actions" id="d-links"></div>
     </div>
   </aside>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-  <script src="script.js"></script>
+  <script src="data.js?v=21"></script>
+  <script src="script.js?v=21"></script>
+  <script src="demosim.js?v=21"></script>
+  <script src="hero.js?v=21"></script>
 </body>
 </html>
